@@ -43,6 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         search.password = password.text
         search.connect()
         
+        self.performSegueWithIdentifier("xablau", sender: self)
     }
 }
 

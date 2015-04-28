@@ -12,15 +12,26 @@ class ProfileViewController: UITableViewController {
 
     
     @IBOutlet var photo: UIImageView!
+    var avatar: UIImage!
+    var search: Search!
+    var userData: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        search = Search.sharedInstance
+        userData = search.userData
+        
+        var avatarURL = String()
+        avatarURL = userData.objectForKey("avatar_url") as! String
+        
+        var data = NSData(contentsOfURL: NSURL(string: avatarURL)!)
+        
+        avatar = UIImage(data: data!)
+        
+        photo.image = avatar
+        photo.layer.masksToBounds = true
+        photo.layer.cornerRadius = 90
     }
 
     override func didReceiveMemoryWarning() {

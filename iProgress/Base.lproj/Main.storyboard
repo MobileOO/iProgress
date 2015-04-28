@@ -41,9 +41,6 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1CX-cK-hFP"/>
-                                    <segue destination="cb0-Zi-gYL" kind="popoverPresentation" popoverAnchorView="YzU-en-A0j" id="o6e-th-9YO">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,6 +96,7 @@
                     <connections>
                         <outlet property="password" destination="ag7-v4-6Dj" id="Uop-eU-h1l"/>
                         <outlet property="username" destination="pyQ-9f-VD5" id="od5-5e-QL7"/>
+                        <segue destination="cb0-Zi-gYL" kind="show" identifier="xablau" id="vCK-QQ-2OQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -189,7 +187,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cez-tz-HGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878" y="663.75"/>
+            <point key="canvasLocation" x="1714" y="654"/>
         </scene>
     </scenes>
 </document>

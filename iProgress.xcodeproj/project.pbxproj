@@ -14,6 +14,9 @@
 		61C80F601AEE7E6500C15F50 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C80F5F1AEE7E6500C15F50 /* Images.xcassets */; };
 		61C80F631AEE7E6500C15F50 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C80F611AEE7E6500C15F50 /* LaunchScreen.xib */; };
 		61C80F6F1AEE7E6500C15F50 /* iProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C80F6E1AEE7E6500C15F50 /* iProgressTests.swift */; };
+		E424A9151AEFBB99009584D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424A9141AEFBB99009584D4 /* User.swift */; };
+		E424A91A1AEFC248009584D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424A9191AEFC248009584D4 /* ProfileViewController.swift */; };
+		E4CB0EE51AEFA211009EC702 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CB0EE41AEFA211009EC702 /* Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		61C80F681AEE7E6500C15F50 /* iProgressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iProgressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C80F6D1AEE7E6500C15F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61C80F6E1AEE7E6500C15F50 /* iProgressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iProgressTests.swift; sourceTree = "<group>"; };
+		E424A9141AEFBB99009584D4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		E424A9191AEFC248009584D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E4CB0EE41AEFA211009EC702 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		61C80F521AEE7E6500C15F50 /* iProgress */ = {
 			isa = PBXGroup;
 			children = (
+				E424A9181AEFC0F1009584D4 /* Entidades */,
 				61C80F551AEE7E6500C15F50 /* AppDelegate.swift */,
 				61C80F5A1AEE7E6500C15F50 /* ViewController.swift */,
 				61C80F5C1AEE7E6500C15F50 /* Main.storyboard */,
@@ -86,6 +93,8 @@
 				61C80F611AEE7E6500C15F50 /* LaunchScreen.xib */,
 				61C80F571AEE7E6500C15F50 /* iProgress.xcdatamodeld */,
 				61C80F531AEE7E6500C15F50 /* Supporting Files */,
+				E4CB0EE41AEFA211009EC702 /* Search.swift */,
+				E424A9191AEFC248009584D4 /* ProfileViewController.swift */,
 			);
 			path = iProgress;
 			sourceTree = "<group>";
@@ -113,6 +122,14 @@
 				61C80F6D1AEE7E6500C15F50 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E424A9181AEFC0F1009584D4 /* Entidades */ = {
+			isa = PBXGroup;
+			children = (
+				E424A9141AEFBB99009584D4 /* User.swift */,
+			);
+			name = Entidades;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +232,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E424A91A1AEFC248009584D4 /* ProfileViewController.swift in Sources */,
 				61C80F5B1AEE7E6500C15F50 /* ViewController.swift in Sources */,
+				E4CB0EE51AEFA211009EC702 /* Search.swift in Sources */,
 				61C80F591AEE7E6500C15F50 /* iProgress.xcdatamodeld in Sources */,
+				E424A9151AEFBB99009584D4 /* User.swift in Sources */,
 				61C80F561AEE7E6500C15F50 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +433,7 @@
 				61C80F741AEE7E6500C15F50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61C80F751AEE7E6500C15F50 /* Build configuration list for PBXNativeTarget "iProgressTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +442,7 @@
 				61C80F771AEE7E6500C15F50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

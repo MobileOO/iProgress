@@ -8,11 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var username: UITextField!
+    @IBOutlet var password: UITextField!
+    
+    var search: Search!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        search = Search.sharedInstance
+        
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.becomeFirstResponder()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +37,12 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func login(sender: AnyObject) {
+        
+        search.name = username.text
+        search.password = password.text
+        search.connect()
+        
+    }
 }
 

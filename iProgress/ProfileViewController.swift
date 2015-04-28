@@ -15,6 +15,9 @@ class ProfileViewController: UITableViewController {
     var avatar: UIImage!
     var search: Search!
     var userData: NSDictionary!
+    @IBOutlet var nick: UILabel!
+    @IBOutlet var followers: UILabel!
+    @IBOutlet var following: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,15 @@ class ProfileViewController: UITableViewController {
         
         photo.image = avatar
         photo.layer.masksToBounds = true
-        photo.layer.cornerRadius = 90
+        photo.layer.cornerRadius = 20
+        
+        nick.text = userData.objectForKey("login") as? String
+        
+        var follow = userData.objectForKey("followers") as! Int
+        followers.text = "\(follow)"
+        
+        var followed = userData.objectForKey("following") as! Int
+        following.text = "\(followed)"
     }
 
     override func didReceiveMemoryWarning() {

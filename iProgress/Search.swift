@@ -51,7 +51,7 @@ class Search: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
         
         // fire off the request
         // make sure your class conforms to NSURLConnectionDelegate
-        let urlConnection = NSURLConnection(request: request, delegate: self)
+        let urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)
         urlConnection?.start()
         
     }
@@ -67,6 +67,8 @@ class Search: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     func connectionDidFinishLoading(connection: NSURLConnection) {
         self.userData = NSJSONSerialization.JSONObjectWithData(self.jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
+        let notificantionCenter = NSNotificationCenter.defaultCenter()
+        notificantionCenter.postNotificationName("segue", object: self)
         
     }
     

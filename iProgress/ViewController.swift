@@ -20,6 +20,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         search = Search.sharedInstance
         
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "profile", name: "segue", object: nil)
+        
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -42,7 +45,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         search.name = username.text
         search.password = password.text
         search.connect()
-        
+    }
+    
+    func profile() {
         self.performSegueWithIdentifier("xablau", sender: self)
     }
 }

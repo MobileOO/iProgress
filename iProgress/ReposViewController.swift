@@ -11,22 +11,27 @@ import UIKit
 class ReposViewController: UITableViewController, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     @IBOutlet weak var TituloRepos: UILabel!
     
-    var searchRepos : Search!
-    var searchRepos2: SearchRepos!
+    var search : Search!
+    var searchRepos: SearchRepos!
     var userData: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchRepos2 = SearchRepos.sharedInstance
-        searchRepos = Search.sharedInstance
-        userData = searchRepos.userData
+        searchRepos = SearchRepos.sharedInstance
+        search = Search.sharedInstance
+        userData = search.userData
+        searchRepos.searchRepos()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,9 +56,9 @@ class ReposViewController: UITableViewController, NSURLConnectionDelegate, NSURL
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("repos", forIndexPath: indexPath) as! UITableViewCell
         
-        //cell.textLabel?.text = "Xablau"
-        searchRepos2.searchRepos()
-        //cell.textLabel?.text = searchRepos2.repos.objectAtIndex(1) as! String
+        cell.textLabel?.text = "Xablau"
+        //searchRepos.searchRepos()
+        cell.textLabel?.text = searchRepos.repos.objectAtIndex(1) as! String
         return cell
     }
 

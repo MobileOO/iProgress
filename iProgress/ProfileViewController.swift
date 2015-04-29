@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class ProfileViewController: UITableViewController {
+class ProfileViewController: UITableViewController, NSURLConnectionDelegate, NSURLConnectionDataDelegate{
     
     @IBOutlet var photo: UIImageView!
     var avatar: UIImage!
     var search: Search!
-    var searchRepos: SearchRepos!
+    //var searchRepos: SearchRepos!
     var userData: NSDictionary!
     @IBOutlet var nick: UILabel!
     @IBOutlet var followers: UILabel!
@@ -25,7 +25,7 @@ class ProfileViewController: UITableViewController {
         
         search = Search.sharedInstance
         userData = search.userData
-        searchRepos = SearchRepos.sharedInstance
+        //searchRepos = SearchRepos.sharedInstance
                 
         var avatarURL = String()
         avatarURL = userData.objectForKey("avatar_url") as! String
@@ -48,7 +48,7 @@ class ProfileViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        searchRepos.searchRepos()
+       // searchRepos.searchRepos()
     }
     
     @IBAction func github(sender: AnyObject) {

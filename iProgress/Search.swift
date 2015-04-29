@@ -86,6 +86,7 @@ class Search: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection) {
+
         self.userData = NSJSONSerialization.JSONObjectWithData(self.jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
         let notificantionCenter = NSNotificationCenter.defaultCenter()

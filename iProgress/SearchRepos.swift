@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
-class SearchRepos: NSObject {
+class SearchRepos: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     
-    var search: Search!
-    var userData: NSDictionary!
+    var appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    var jsonData: NSMutableData!
+    var user: User!
+    var result: NSArray!
+    
+    var name: String
+    var password: String
+    
+    var userReposData: NSMutableArray!
+    var xablau: NSMutableArray!
+    var json: NSMutableData!
+    var repos: NSMutableArray!
     
     class var sharedInstance : SearchRepos{
         struct Static {
@@ -28,42 +38,59 @@ class SearchRepos: NSObject {
     
     private override init() {
     
+        name = String()
+        password = String()
         
         super.init()
         
     }
     func  searchRepos(){
         
-        search = Search.sharedInstance
+        var fetchRequest = NSFetchRequest(entityName: "User")
+        fetchRequest.returnsObjectsAsFaults = false
         
-        let loginString = NSString(format: "%@:%@", search.name, search.password)
+        result = context!.executeFetchRequest(fetchRequest, error: nil)!
+        
+        user = result.objectAtIndex(0) as! User
+        self.name = user.name
+        self.password = user.password
+        
+        let loginString = NSString(format: "%@:%@", self.name, self.password)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
         let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
         
         // create the request
-        let url = NSURL(string: "https://api.github.com/user/repos")
+        let url = NSURL(string: "https://api.github.com/users/\(self.name)/repos")
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
         // fire off the request
         // make sure your class conforms to NSURLConnectionDelegate
-        let urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)
-        urlConnection?.start()
-    }
-    func connectionRepos(connection: NSURLConnection, didReceiveData data: NSData) {
-        self.jsonData?.appendData(data)
+        let connection = NSURLConnection(request: request, delegate: self, startImmediately: true)
+        connection?.start()
     }
     
-    func connectionRepos(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
-        self.jsonData = NSMutableData()
+    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+        self.json?.appendData(data)
+        
+    }
+    
+    func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
+        self.json = NSMutableData()
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection) {
-        self.userData = NSJSONSerialization.JSONObjectWithData(self.jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+        self.userReposData = NSJSONSerialization.JSONObjectWithData(self.json, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSMutableArray
         
-        //let notificantionCenter = NSNotificationCenter.defaultCenter()
-        //notificantionCenter.postNotificationName("segue", object: self)
+        self.repos = NSMutableArray()
+        
+        for i in 0..<(userReposData.count) {
+            var repo = userReposData[i] as! NSMutableDictionary
+            var name = repo.valueForKey("url") as! String
+            repos.addObject(name)
+        }
+        
         
     }
 }

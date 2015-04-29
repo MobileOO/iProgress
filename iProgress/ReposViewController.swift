@@ -9,9 +9,15 @@
 import UIKit
 
 class ReposViewController: UITableViewController {
-
+    
+    var searchRepos : Search!
+    var userData: NSDictionary!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchRepos = Search.sharedInstance
+        userData = searchRepos.userData
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

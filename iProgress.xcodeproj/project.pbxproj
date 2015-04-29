@@ -18,7 +18,6 @@
 		E424A9151AEFBB99009584D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424A9141AEFBB99009584D4 /* User.swift */; };
 		E424A91A1AEFC248009584D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424A9191AEFC248009584D4 /* ProfileViewController.swift */; };
 		E43D4C131AF0F035004F0F5A /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D4C121AF0F035004F0F5A /* ReposViewController.swift */; };
-		E43D4C151AF10D72004F0F5A /* AppStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D4C141AF10D72004F0F5A /* AppStart.swift */; };
 		E4CB0EE51AEFA211009EC702 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CB0EE41AEFA211009EC702 /* Search.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		E424A9141AEFBB99009584D4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
 		E424A9191AEFC248009584D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E43D4C121AF0F035004F0F5A /* ReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
-		E43D4C141AF10D72004F0F5A /* AppStart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStart.swift; sourceTree = "<group>"; };
 		E4CB0EE41AEFA211009EC702 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				E424A9181AEFC0F1009584D4 /* Entidades */,
-				E43D4C141AF10D72004F0F5A /* AppStart.swift */,
 				61C80F551AEE7E6500C15F50 /* AppDelegate.swift */,
 				61C80F5A1AEE7E6500C15F50 /* ViewController.swift */,
 				61C80F5C1AEE7E6500C15F50 /* Main.storyboard */,
@@ -241,7 +238,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43D4C151AF10D72004F0F5A /* AppStart.swift in Sources */,
 				E424A91A1AEFC248009584D4 /* ProfileViewController.swift in Sources */,
 				61C80F5B1AEE7E6500C15F50 /* ViewController.swift in Sources */,
 				E4CB0EE51AEFA211009EC702 /* Search.swift in Sources */,

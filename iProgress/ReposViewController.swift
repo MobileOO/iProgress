@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ReposViewController: UITableViewController {
+class ReposViewController: UITableViewController, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
+    @IBOutlet weak var TituloRepos: UILabel!
     
     var searchRepos : Search!
+    var searchRepos2: SearchRepos!
     var userData: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchRepos2 = SearchRepos.sharedInstance
         searchRepos = Search.sharedInstance
         userData = searchRepos.userData
 
@@ -47,11 +50,14 @@ class ReposViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("repos", forIndexPath: indexPath) as! UITableViewCell
-
-        cell.textLabel?.text = "Xablau"
-
+        
+        //cell.textLabel?.text = "Xablau"
+        searchRepos2.searchRepos()
+        //cell.textLabel?.text = searchRepos2.repos.objectAtIndex(1) as! String
         return cell
     }
+
+
     
 
     /*

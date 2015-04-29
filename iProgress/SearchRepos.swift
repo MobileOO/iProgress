@@ -24,6 +24,9 @@ class SearchRepos: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegat
     var xablau: NSMutableArray!
     var json: NSMutableData!
     var repos: NSMutableArray!
+    var repos2: NSMutableArray!
+    var reposMobile :NSMutableArray!
+    var aux: String!
     
     class var sharedInstance : SearchRepos{
         struct Static {
@@ -84,12 +87,35 @@ class SearchRepos: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegat
         self.userReposData = NSJSONSerialization.JSONObjectWithData(self.json, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSMutableArray
         
         self.repos = NSMutableArray()
+        self.repos2 = NSMutableArray()
+        
+        self.reposMobile = NSMutableArray()
         
         for i in 0..<(userReposData.count) {
             var repo = userReposData[i] as! NSMutableDictionary
             var name = repo.valueForKey("url") as! String
+            var repu = repo.valueForKey("owner") as! NSMutableDictionary
             repos.addObject(name)
+            repos2.addObject(repu)
         }
+        for i in 0..<(repos2.count) {
+            var hots = repos2[i] as! NSMutableDictionary
+            var repu2 = hots.valueForKey("login") as! String
+            if (repu2 == "mackmobile"){
+                reposMobile.addObject(repu2)
+                
+            }
+            //var repo3 = repos2[i] as! NSMutableDictionary
+           
+        }
+
+        
+//        for i in 0..<(userReposData.count) {
+//            var repu = userReposData[i] as! NSMutableDictionary
+//            
+//            if repo.valueForKey("owner") as! String = ("teste"){
+//                
+//            }
         
         
     }

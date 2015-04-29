@@ -9,7 +9,7 @@
         <!--Login-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Login" id="vXZ-lx-hvc" customClass="ViewController" customModule="iProgress" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Login" id="vXZ-lx-hvc" customClass="ViewController" customModule="iProgress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -102,11 +102,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1014" y="650.25"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="6g0-OR-6gj">
             <objects>
-                <tableViewController title="Perfil" id="cb0-Zi-gYL" customClass="ProfileViewController" customModule="iProgress" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Profile" title="Perfil" id="cb0-Zi-gYL" customClass="ProfileViewController" customModule="iProgress" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="swt-oa-9iO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

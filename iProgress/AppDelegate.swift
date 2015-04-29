@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let rootViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! UIViewController
+        let secondViewController = storyboard.instantiateViewControllerWithIdentifier("Profile") as! UITableViewController
+        
         return true
     }
 
@@ -25,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var request = NSFetchRequest(entityName: "User")
         request.returnsObjectsAsFaults = false
         
-        var result: NSArray = context!.executeFetchRequest(request, error: nil)!
+        var result: NSArray = managedObjectContext!.executeFetchRequest(request, error: nil)!
         
         if result.count == 0 {
             return false

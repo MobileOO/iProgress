@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileViewController: UITableViewController {
-
     
     @IBOutlet var photo: UIImageView!
     var avatar: UIImage!

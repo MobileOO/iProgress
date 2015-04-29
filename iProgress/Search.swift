@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class Search: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
+    
+    var appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    var user: User!
+    var result: NSArray!
     
     var name: String
     var password: String
@@ -38,6 +45,20 @@ class Search: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     }
     
     func connect() {
+        
+        var test: Bool = verify()
+        
+        if test == true {
+            user = result.objectAtIndex(0) as! User
+            self.name = user.name
+            self.password = user.password
+        } else {
+            user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: context!) as! User
+            user.name = self.name
+            user.password = self.password
+            context!.save(nil)
+        }
+        
         
         let loginString = NSString(format: "%@:%@", self.name, self.password)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
@@ -69,6 +90,21 @@ class Search: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
         
         let notificantionCenter = NSNotificationCenter.defaultCenter()
         notificantionCenter.postNotificationName("segue", object: self)
+        
+    }
+    
+    func verify() -> Bool {
+        
+        var request = NSFetchRequest(entityName: "User")
+        request.returnsObjectsAsFaults = false
+        
+        result = context!.executeFetchRequest(request, error: nil)!
+        
+        if result.count == 0 {
+            return false
+        } else {
+            return true
+        }
         
     }
     

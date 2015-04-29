@@ -90,6 +90,7 @@ class Search: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
         
         let notificantionCenter = NSNotificationCenter.defaultCenter()
         notificantionCenter.postNotificationName("segue", object: self)
+        notificantionCenter.postNotificationName("root", object: self)
         
     }
     

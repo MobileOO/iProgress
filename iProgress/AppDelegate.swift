@@ -17,12 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "rooting", name: "root", object: nil)
         
-        let rootViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! UIViewController
-        let secondViewController = storyboard.instantiateViewControllerWithIdentifier("Profile") as! UITableViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rootViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! ViewController
+        
+        let test = verify()
+        
+        var search = Search.sharedInstance
+        
+        if test == true {
+            search.connect()
+        }
         
         return true
+    }
+    
+    func rooting() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rootViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! ViewController
+        rootViewController.profile()
     }
 
     func verify() -> Bool {

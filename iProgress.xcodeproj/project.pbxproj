@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27CB44F01AF10E8E0005A7F9 /* SearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB44EF1AF10E8E0005A7F9 /* SearchRepos.swift */; };
 		61C80F561AEE7E6500C15F50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C80F551AEE7E6500C15F50 /* AppDelegate.swift */; };
 		61C80F591AEE7E6500C15F50 /* iProgress.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61C80F571AEE7E6500C15F50 /* iProgress.xcdatamodeld */; };
 		61C80F5B1AEE7E6500C15F50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C80F5A1AEE7E6500C15F50 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27CB44EF1AF10E8E0005A7F9 /* SearchRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepos.swift; sourceTree = "<group>"; };
 		61C80F501AEE7E6500C15F50 /* iProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C80F541AEE7E6500C15F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61C80F551AEE7E6500C15F50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				61C80F571AEE7E6500C15F50 /* iProgress.xcdatamodeld */,
 				61C80F531AEE7E6500C15F50 /* Supporting Files */,
 				E4CB0EE41AEFA211009EC702 /* Search.swift */,
+				27CB44EF1AF10E8E0005A7F9 /* SearchRepos.swift */,
 				E424A9191AEFC248009584D4 /* ProfileViewController.swift */,
 				E43D4C121AF0F035004F0F5A /* ReposViewController.swift */,
 			);
@@ -242,6 +245,7 @@
 				E424A91A1AEFC248009584D4 /* ProfileViewController.swift in Sources */,
 				61C80F5B1AEE7E6500C15F50 /* ViewController.swift in Sources */,
 				E4CB0EE51AEFA211009EC702 /* Search.swift in Sources */,
+				27CB44F01AF10E8E0005A7F9 /* SearchRepos.swift in Sources */,
 				E43D4C131AF0F035004F0F5A /* ReposViewController.swift in Sources */,
 				61C80F591AEE7E6500C15F50 /* iProgress.xcdatamodeld in Sources */,
 				E424A9151AEFBB99009584D4 /* User.swift in Sources */,

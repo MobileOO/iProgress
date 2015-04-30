@@ -481,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDh-Zo-xfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2512.5" y="650.25"/>
+            <point key="canvasLocation" x="2401" y="872"/>
         </scene>
         <!--Repos-->
         <scene sceneID="5ic-6N-9jx">
@@ -517,11 +517,6 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <connections>
-                        <segue destination="lga-Lg-WFY" kind="popoverPresentation" id="DYF-Rv-W3a">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkE-Kb-pYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

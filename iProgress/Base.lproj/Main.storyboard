@@ -114,7 +114,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="85" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <containerView key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="ara-ia-Bs5">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <rect key="frame" x="0.0" y="355" width="600" height="128"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <segue destination="Fbo-t0-Sln" kind="embed" id="iHP-D4-7V4"/>
@@ -345,15 +345,15 @@
                                                     <exclude reference="jZF-Ys-ENn"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="Elr-75-dYr"/>
+                                                    <exclude reference="dmY-LP-C9V"/>
+                                                    <exclude reference="jif-9y-z8g"/>
                                                     <exclude reference="JMy-BP-lae"/>
                                                     <exclude reference="RTk-7U-0ZL"/>
                                                     <exclude reference="Y9o-ca-HQi"/>
                                                     <exclude reference="wQf-xL-mAz"/>
                                                     <exclude reference="Ise-tx-qZP"/>
                                                     <exclude reference="s2U-XP-eU3"/>
-                                                    <exclude reference="Elr-75-dYr"/>
-                                                    <exclude reference="dmY-LP-C9V"/>
-                                                    <exclude reference="jif-9y-z8g"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -363,15 +363,15 @@
                                                     <include reference="jZF-Ys-ENn"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="Elr-75-dYr"/>
+                                                    <include reference="dmY-LP-C9V"/>
+                                                    <include reference="jif-9y-z8g"/>
                                                     <include reference="JMy-BP-lae"/>
                                                     <include reference="RTk-7U-0ZL"/>
                                                     <include reference="Y9o-ca-HQi"/>
                                                     <include reference="wQf-xL-mAz"/>
                                                     <include reference="Ise-tx-qZP"/>
                                                     <include reference="s2U-XP-eU3"/>
-                                                    <include reference="Elr-75-dYr"/>
-                                                    <include reference="dmY-LP-C9V"/>
-                                                    <include reference="jif-9y-z8g"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -395,13 +395,100 @@
             </objects>
             <point key="canvasLocation" x="1758" y="650.25"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="5X6-Fn-vId">
+            <objects>
+                <viewController id="lga-Lg-WFY" customClass="DetailsViewController" customModule="iProgress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L2E-18-NY9"/>
+                        <viewControllerLayoutGuide type="bottom" id="TWE-Of-cqA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oo5-bt-za5">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Repositorio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwi-4i-FR9">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labels" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pO5-jX-iT8">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linguagem" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zet-ZZ-h7U">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cwi-4i-FR9" secondAttribute="trailing" constant="114" id="1yC-nV-qzb"/>
+                            <constraint firstItem="cwi-4i-FR9" firstAttribute="top" secondItem="L2E-18-NY9" secondAttribute="bottom" constant="100" id="2xw-yq-Yj0"/>
+                            <constraint firstItem="pO5-jX-iT8" firstAttribute="top" secondItem="zet-ZZ-h7U" secondAttribute="bottom" constant="83" id="3B5-lc-oib"/>
+                            <constraint firstItem="zet-ZZ-h7U" firstAttribute="leading" secondItem="oo5-bt-za5" secondAttribute="leadingMargin" constant="145" id="SgU-qT-e8t"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pO5-jX-iT8" secondAttribute="trailing" constant="158" id="Unz-dB-sah"/>
+                            <constraint firstItem="cwi-4i-FR9" firstAttribute="leading" secondItem="oo5-bt-za5" secondAttribute="leadingMargin" constant="115" id="b7J-d8-5im"/>
+                            <constraint firstItem="pO5-jX-iT8" firstAttribute="leading" secondItem="oo5-bt-za5" secondAttribute="leadingMargin" constant="159" id="r1P-Xc-LLj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zet-ZZ-h7U" secondAttribute="trailing" constant="137" id="sHg-yc-8z5"/>
+                            <constraint firstItem="zet-ZZ-h7U" firstAttribute="top" secondItem="cwi-4i-FR9" secondAttribute="bottom" constant="90" id="tIi-14-WeP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cwi-4i-FR9"/>
+                                <exclude reference="pO5-jX-iT8"/>
+                                <exclude reference="zet-ZZ-h7U"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1yC-nV-qzb"/>
+                                <exclude reference="2xw-yq-Yj0"/>
+                                <exclude reference="b7J-d8-5im"/>
+                                <exclude reference="SgU-qT-e8t"/>
+                                <exclude reference="sHg-yc-8z5"/>
+                                <exclude reference="tIi-14-WeP"/>
+                                <exclude reference="3B5-lc-oib"/>
+                                <exclude reference="Unz-dB-sah"/>
+                                <exclude reference="r1P-Xc-LLj"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="cwi-4i-FR9"/>
+                                <include reference="pO5-jX-iT8"/>
+                                <include reference="zet-ZZ-h7U"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1yC-nV-qzb"/>
+                                <include reference="2xw-yq-Yj0"/>
+                                <include reference="b7J-d8-5im"/>
+                                <include reference="SgU-qT-e8t"/>
+                                <include reference="sHg-yc-8z5"/>
+                                <include reference="tIi-14-WeP"/>
+                                <include reference="3B5-lc-oib"/>
+                                <include reference="Unz-dB-sah"/>
+                                <include reference="r1P-Xc-LLj"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="lingRepo" destination="zet-ZZ-h7U" id="0IB-nx-Fwn"/>
+                        <outlet property="nomeRepo" destination="cwi-4i-FR9" id="jwW-AQ-FbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDh-Zo-xfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512.5" y="650.25"/>
+        </scene>
         <!--Repos-->
         <scene sceneID="5ic-6N-9jx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wkE-Kb-pYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Repos" automaticallyAdjustsScrollViewInsets="NO" id="Fbo-t0-Sln" customClass="ReposViewController" customModule="iProgress" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="CgH-yr-S3k">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -410,7 +497,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g8X-3z-jy9" id="JDN-1M-eqv">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X5G-Ef-KHP">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Nome Repositorio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X5G-Ef-KHP">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -430,9 +517,15 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <connections>
+                        <segue destination="lga-Lg-WFY" kind="popoverPresentation" id="DYF-Rv-W3a">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkE-Kb-pYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="1344"/>
+            <point key="canvasLocation" x="1758" y="1065.75"/>
         </scene>
     </scenes>
     <resources>

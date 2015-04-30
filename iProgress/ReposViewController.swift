@@ -58,7 +58,7 @@ class ReposViewController: UITableViewController, NSURLConnectionDelegate, NSURL
         
         cell.textLabel?.text = "Xablau"
         //searchRepos.searchRepos()
-        cell.textLabel?.text = searchRepos.repos.objectAtIndex(1) as! String
+        cell.textLabel?.text = searchRepos.repos.objectAtIndex(1) as? String
         return cell
     }
 

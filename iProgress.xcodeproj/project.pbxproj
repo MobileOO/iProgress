@@ -103,6 +103,7 @@
 				61C80F531AEE7E6500C15F50 /* Supporting Files */,
 				E4CB0EE41AEFA211009EC702 /* Search.swift */,
 				27CB44EF1AF10E8E0005A7F9 /* SearchRepos.swift */,
+				E4A8C1CA1AF2412200AA82A9 /* Filter.swift */,
 				E424A9191AEFC248009584D4 /* ProfileViewController.swift */,
 				E43D4C121AF0F035004F0F5A /* ReposViewController.swift */,
 				271D5F211AF245E800F04CA8 /* DetailsViewController.swift */,

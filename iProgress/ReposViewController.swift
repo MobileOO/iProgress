@@ -62,9 +62,8 @@ class ReposViewController: UITableViewController, NSURLConnectionDelegate, NSURL
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("repos", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = "Xablau"
-        //searchRepos.searchRepos()
-        cell.textLabel?.text = searchRepos.repos.objectAtIndex(1) as? String
+        cell.textLabel?.text = filter.mackRepos.objectAtIndex(indexPath.row) as! String
+        
         return cell
     }
 

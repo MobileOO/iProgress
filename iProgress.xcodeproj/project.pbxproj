@@ -18,6 +18,7 @@
 		E424A9151AEFBB99009584D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424A9141AEFBB99009584D4 /* User.swift */; };
 		E424A91A1AEFC248009584D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424A9191AEFC248009584D4 /* ProfileViewController.swift */; };
 		E43D4C131AF0F035004F0F5A /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D4C121AF0F035004F0F5A /* ReposViewController.swift */; };
+		E4A8C1CB1AF2412200AA82A9 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8C1CA1AF2412200AA82A9 /* Filter.swift */; };
 		E4CB0EE51AEFA211009EC702 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CB0EE41AEFA211009EC702 /* Search.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		E424A9141AEFBB99009584D4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
 		E424A9191AEFC248009584D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E43D4C121AF0F035004F0F5A /* ReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
+		E4A8C1CA1AF2412200AA82A9 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		E4CB0EE41AEFA211009EC702 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				27CB44EF1AF10E8E0005A7F9 /* SearchRepos.swift */,
 				E424A9191AEFC248009584D4 /* ProfileViewController.swift */,
 				E43D4C121AF0F035004F0F5A /* ReposViewController.swift */,
+				E4A8C1CA1AF2412200AA82A9 /* Filter.swift */,
 			);
 			path = iProgress;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				E43D4C131AF0F035004F0F5A /* ReposViewController.swift in Sources */,
 				61C80F591AEE7E6500C15F50 /* iProgress.xcdatamodeld in Sources */,
 				E424A9151AEFBB99009584D4 /* User.swift in Sources */,
+				E4A8C1CB1AF2412200AA82A9 /* Filter.swift in Sources */,
 				61C80F561AEE7E6500C15F50 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

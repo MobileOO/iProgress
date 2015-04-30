@@ -11,23 +11,29 @@ import UIKit
 class ReposViewController: UITableViewController, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     @IBOutlet weak var TituloRepos: UILabel!
     
-    var search : Search!
     var searchRepos: SearchRepos!
-    var userData: NSDictionary!
+    var filter: Filter!
+    var i = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "repoRay", name: "connect", object: nil)
+        notificationCenter.addObserver(self, selector: "reload", name: "reload", object: nil)
+        
         searchRepos = SearchRepos.sharedInstance
-        search = Search.sharedInstance
-        userData = search.userData
         searchRepos.searchRepos()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        filter = Filter.sharedInstance
+    }
+    
+    func repoRay() {
+        filter.repoConnect()
+    }
+    
+    func reload() {
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -50,15 +56,14 @@ class ReposViewController: UITableViewController, NSURLConnectionDelegate, NSURL
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 5
+        return filter.mackRepos.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("repos", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = "Xablau"
-        //searchRepos.searchRepos()
-        cell.textLabel?.text = searchRepos.repos.objectAtIndex(1) as! String
+        cell.textLabel?.text = filter.mackRepos.objectAtIndex(indexPath.row) as! String
+        
         return cell
     }
 

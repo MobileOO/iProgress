@@ -1,15 +1,15 @@
 //
-//  SearchRepos.swift
+//  Filter.swift
 //  iProgress
 //
-//  Created by Rafael Cavalcante Ferreira Santos Matos on 4/29/15.
+//  Created by Isaías Lima on 30/04/15.
 //  Copyright (c) 2015 Eduardo Quadros. All rights reserved.
 //
 
 import UIKit
 import CoreData
-
-class SearchRepos: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
+    
+class Filter: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     
     var appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -20,34 +20,37 @@ class SearchRepos: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegat
     var name: String
     var password: String
     
-    var userReposData: NSMutableArray!
-    var xablau: NSMutableArray!
-    var json: NSMutableData!
-    var repos: NSMutableArray!
-    var repos2: NSMutableArray!
-    var reposMobile :NSMutableArray!
-    var aux: String!
+    var jsonData: NSMutableData!
+    var repoData: NSDictionary!
     
-    class var sharedInstance : SearchRepos{
+    var mackRepos: NSMutableArray!
+    
+    var searchRepos: SearchRepos!
+    
+    var i = 0
+    
+    class var sharedInstance : Filter {
         struct Static {
             static var onceToken : dispatch_once_t = 0
-            static var instance : SearchRepos? = nil
+            static var instance : Filter? = nil
         }
         dispatch_once(&Static.onceToken) {
-            Static.instance = SearchRepos()
+            Static.instance = Filter()
         }
         return Static.instance!
     }
     
     private override init() {
-    
+        
         name = String()
         password = String()
+        mackRepos = NSMutableArray()
+        searchRepos = SearchRepos.sharedInstance
         
         super.init()
-        
     }
-    func  searchRepos(){
+    
+    func repoConnect() {
         
         var fetchRequest = NSFetchRequest(entityName: "User")
         fetchRequest.returnsObjectsAsFaults = false
@@ -62,41 +65,50 @@ class SearchRepos: NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegat
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
         let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
         
-        // create the request
-        let url = NSURL(string: "https://api.github.com/users/\(self.name)/repos")
+        let url = NSURL(string: searchRepos.repos.objectAtIndex(i) as! String)
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        
+            
         // fire off the request
         // make sure your class conforms to NSURLConnectionDelegate
-        let connection = NSURLConnection(request: request, delegate: self, startImmediately: true)
-        connection?.start()
+        let urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)
+        urlConnection?.start()
+        i++
+
+        
     }
     
     func connection(connection: NSURLConnection, didReceiveData data: NSData) {
-        self.json?.appendData(data)
-        
+        self.jsonData?.appendData(data)
     }
     
     func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
-        self.json = NSMutableData()
+        self.jsonData = NSMutableData()
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection) {
-        self.userReposData = NSJSONSerialization.JSONObjectWithData(self.json, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSMutableArray
+        self.repoData = NSJSONSerialization.JSONObjectWithData(self.jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
-        self.repos = NSMutableArray()
-        
-        for i in 0..<(userReposData.count) {
-            var repo = userReposData[i] as! NSMutableDictionary
-            var name = repo.valueForKey("url") as! String
-            repos.addObject(name)
-
+        if repoData.valueForKey("parent") != nil {
+            
+            var parent = repoData.valueForKey("parent") as! NSMutableDictionary
+            var owner = parent.valueForKey("owner") as! NSMutableDictionary
+            var login = owner.valueForKey("login") as! String
+            
+            if login == "mackmobile" {
+                mackRepos.addObject(repoData.valueForKey("name") as! String)
+            }
+            
         }
-       
-        let notificantionCenter = NSNotificationCenter.defaultCenter()
-        notificantionCenter.postNotificationName("connect", object: self)
+        
+        if i < searchRepos.repos.count {
+            self.repoConnect()
+        } else {
+            let notificantionCenter = NSNotificationCenter.defaultCenter()
+            notificantionCenter.postNotificationName("reload", object: self)
+        }
         
     }
+   
 }
